@@ -61,7 +61,7 @@ const Navbar = () => {
           </ul>
         </div>
       </div>
-      <hr className="mt-10 " />
+      <hr className="mt-10  mb-[70px] " />
     </>
   );
 };

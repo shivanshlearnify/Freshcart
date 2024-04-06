@@ -5,7 +5,7 @@ import { FaArrowRight } from "react-icons/fa6";
 const BannerSection = () => {
   return (
     <div
-      className="bg-cover max-w-7xl mx-auto h-[480px] my-[30px] rounded flex items-center"
+      className="bg-cover max-w-7xl mx-auto h-[480px] mb-[70px] rounded flex items-center"
       style={{ backgroundImage: `url(${slide1})` }}
     >
       <div className="max-w-[360px] ml-12 ">

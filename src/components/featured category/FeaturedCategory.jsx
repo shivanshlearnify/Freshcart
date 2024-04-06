@@ -17,7 +17,7 @@ const FeaturedCategory = () => {
   ];
 
   return (
-    <div className="max-w-7xl mx-auto mt-[60px] mb-16">
+    <div className="max-w-7xl mx-auto mt-[60px] mb-[70px] ">
       <h1 className="text-[28px] font-bold mb-4">Featured Categories</h1>
       <div className="flex justify-between gap-3">
         {category.map((item, index) => (
