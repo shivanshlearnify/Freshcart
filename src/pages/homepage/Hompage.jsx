@@ -5,6 +5,8 @@ import FeaturedCategory from "../../components/featured category/FeaturedCategor
 import PromoBar from "../../components/promoBar/PromoBar";
 import CategoryBanner from "../../components/categoryBanner/CategoryBanner";
 import InfoSection from "../../components/infoSection/InfoSection";
+import Footer1 from "../../components/footer/Footer1";
+
 
 const Hompage = () => {
   return (
@@ -15,6 +17,7 @@ const Hompage = () => {
       <FeaturedCategory />
       <CategoryBanner/>
       <InfoSection/>
+      <Footer1/>
     </div>
   );
 };
