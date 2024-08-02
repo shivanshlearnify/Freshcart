@@ -5,6 +5,7 @@ import img3 from "../../assets/categoryImages/category3.jpeg";
 import img4 from "../../assets/categoryImages/category4.jpeg";
 import img5 from "../../assets/categoryImages/category5.jpeg";
 import img6 from "../../assets/categoryImages/category6.jpeg";
+import { Link } from "react-router-dom";
 
 const FeaturedCategory = () => {
   const category = [
@@ -21,9 +22,11 @@ const FeaturedCategory = () => {
       <h1 className="text-[28px] font-bold mb-4">Featured Categories</h1>
       <div className="flex justify-between gap-3">
         {category.map((item, index) => (
-          <div className=" border py-8 px-7 flex flex-col items-center rounded gap-2">
+          <div className=" border py-8 px-7 flex flex-col items-center rounded gap-2" key={index}>
+            <Link to={"/Product-Category/groceries"}>
             <img src={item.img} alt="" />
             <span className="font-medium">{item.name}</span>
+            </Link>
           </div>
         ))}
       </div>

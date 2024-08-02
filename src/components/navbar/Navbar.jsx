@@ -1,4 +1,3 @@
-import React from "react";
 import logo from "../../assets/freshcart-logo.svg";
 import { MdOutlineSearch } from "react-icons/md";
 import { IoMdHeartEmpty } from "react-icons/io";
@@ -6,17 +5,22 @@ import { FiUser } from "react-icons/fi";
 import { CiShoppingCart } from "react-icons/ci";
 import { TbCategory } from "react-icons/tb";
 import { FaChevronDown } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import DataContext from "../../utils/DataContext";
 
 const Navbar = () => {
+  const { categoryData } = useContext(DataContext);
+  const [isHovered, setIsHovered] = useState(false);
   return (
     <>
       <div className="max-w-7xl mx-auto h-[100px]">
         <div className="flex items-center h-[75px] justify-between">
+          <Link to={"/"}>
+            <img src={logo} alt="Logo" />
+          </Link>
           <div>
-            <img src={logo} alt="" />
-          </div>
-          <div className="">
-            <div className="flex  justify-between mx-auto border border-gray-500 rounded items-center  ">
+            <div className="flex  justify-between mx-auto border-2 border-gray-500 rounded items-center  ">
               <input
                 className="border-r-2 border-gray-400 w-[950px] h-[30px] px-3 py-4 outline-none focus:outline-none"
                 type="text"
@@ -38,15 +42,26 @@ const Navbar = () => {
           </div>
         </div>
         <div className="flex gap-4 items-center">
-          <div className="bg-[#0aad0a] text-[white] flex items-center px-[28px] py-[8px] rounded cursor-pointer">
+          <div
+            className="bg-[#0aad0a] text-[white] flex items-center px-[28px] py-[8px] rounded cursor-pointer"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
             <TbCategory className="mr-2" />{" "}
             <span className="text-[18px] font-medium">All Category</span>
           </div>
           <ul className="flex gap-4">
-            <li className="flex items-center gap-2 font-medium text-gray-700 ">
-              Home <FaChevronDown />
-            </li>
-            <li className="flex items-center gap-2 font-medium text-gray-700 ">
+            <Link
+              to={"/"}
+              className="flex items-center gap-2 font-medium text-gray-700 "
+            >
+              Home
+            </Link>
+            <li
+              className="flex items-center gap-2 font-medium text-gray-700 cursor-pointer "
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+            >
               Mega menu <FaChevronDown />
             </li>
             <li className="flex items-center gap-2 font-medium text-gray-700 ">
@@ -60,8 +75,27 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
+        {isHovered && (
+          <div
+            className="relative top-[1px] bg-white w-5/12 border rounded-lg p-4 shadow-md"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
+            <ul className="grid grid-cols-2 ">
+              {categoryData?.map((categoryname, index) => (
+                <Link
+                  className="text-transform: capitalize text-[#5c6c75] hover:bg-slate-200 rounded-lg py-1 px-2 font-medium"
+                  key={index}
+                  to={"/Product-Category/" + categoryname}
+                >
+                  {categoryname}
+                </Link>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
-      <hr className="mt-10  mb-[70px] " />
+      <hr className="mt-10  mb-[30px] " />
     </>
   );
 };

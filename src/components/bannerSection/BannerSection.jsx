@@ -16,7 +16,7 @@ const BannerSection = () => {
           delivery.
         </p>
         <button className="flex items-center bg-black rounded-md text-white px-6 py-2">
-          Shop Now <FaArrowRight />
+          Shop Now &nbsp;<FaArrowRight />
         </button>
       </div>
     </div>
