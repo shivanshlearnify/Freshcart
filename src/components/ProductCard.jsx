@@ -1,13 +1,15 @@
 import { Link } from "react-router-dom";
 
 const ProductCard = ({ image, title, rating, price,id }) => {
+  console.log(image);
+  
   return (
     <div className="max-w-[240px] border-2 rounded-md cursor-pointer">
       <Link to={"/Product/"+id}>
       <img src={image} alt={title} className="w-[230px] h-[230px]" />
       <div className="p-2 flex flex-col gap-2">
         <h2 className="font-semibold">
-          {title.length > 25 ? title?.slice(0, 25) + "..." : title}
+          {title.length > 25 ? title?.slice(0, 20) + "..." : title}
         </h2>
         <p>Rating ({rating} Out Of 5)</p>
         <p>Price - {price}</p>

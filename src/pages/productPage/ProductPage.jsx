@@ -37,7 +37,7 @@ const ProductPage = () => {
         </span>
       </div>
       <div className="flex gap-16">
-        <img className="w-1/2 h-[555px]" src={images} alt={title} />
+        <img className="w-1/2 h-[555px]" src={images[0]} alt={title} />
         <div className="flex flex-col gap-6 justify-center">
           <div>
             <h2 className="text-4xl font-medium text-gray-500 mb-2 flex gap-4 items-center">

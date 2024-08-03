@@ -73,6 +73,7 @@ const Navbar = () => {
             <li className="flex items-center gap-2 font-medium text-gray-700 ">
               Account <FaChevronDown />
             </li>
+            <Link className="flex items-center gap-2 font-medium text-gray-700 " to={"/AllProducts"}>All Products</Link>
           </ul>
         </div>
         {isHovered && (

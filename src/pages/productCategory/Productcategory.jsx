@@ -44,7 +44,7 @@ const ProductCategory = () => {
               <ProductCard
                 key={product.id}
                 id={product.id}
-                image={product.images[0]}
+                image={product?.images[0]}
                 title={product.title}
                 rating={product.rating}
                 price={product.price}
