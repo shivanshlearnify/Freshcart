@@ -4,6 +4,7 @@ import { GoStarFill } from "react-icons/go";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { FaUser } from "react-icons/fa";
 import ProductCard from "../../components/ProductCard";
+import ProductPageShimmer from "../../components/shimmer/ProductPageShimmer";
 
 const ProductPage = () => {
   const { id } = useParams();
@@ -15,7 +16,7 @@ const ProductPage = () => {
       `https://dummyjson.com/products/category/${productData?.category}`
     );
   if (!productData) {
-    return <p className="max-w-7xl mx-auto">Product not found.</p>;
+    return <ProductPageShimmer/> ;
   }
   const { category, title, images, description, reviews, price, stock, brand } =
     productData;

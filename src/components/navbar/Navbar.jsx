@@ -57,13 +57,13 @@ const Navbar = () => {
             >
               Home
             </Link>
-            <li
-              className="flex items-center gap-2 font-medium text-gray-700 cursor-pointer "
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
+
+            <Link
+              className="flex items-center gap-2 font-medium text-gray-700 "
+              to={"/AllProducts"}
             >
-              Mega menu <FaChevronDown />
-            </li>
+              All Products
+            </Link>
             <li className="flex items-center gap-2 font-medium text-gray-700 ">
               About us <FaChevronDown />
             </li>
@@ -73,7 +73,6 @@ const Navbar = () => {
             <li className="flex items-center gap-2 font-medium text-gray-700 ">
               Account <FaChevronDown />
             </li>
-            <Link className="flex items-center gap-2 font-medium text-gray-700 " to={"/AllProducts"}>All Products</Link>
           </ul>
         </div>
         {isHovered && (

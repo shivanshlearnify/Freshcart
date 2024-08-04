@@ -1,8 +1,13 @@
-# React + Vite
+Pages->
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+  - Homepage
+  - All ProductPage
+  - ProductCategory
+  - ProductPage
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+  Features
+  - All date is Received through API
+  - Used Data Context for storing data
+  - Morden and reusable Components
+  - Shimmer ui in All Page
+  - Throttling in All ProductPage while pagination

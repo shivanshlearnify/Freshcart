@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ProductCard from "../../components/ProductCard";
 import GetAllProduct from "../../hooks/GetAllProduct";
+import Shimmer from "../../components/shimmer/Shimmer";
 
 const AllProducts = () => {
   const [skipData, setSkipData] = useState(0);
@@ -34,7 +35,7 @@ const AllProducts = () => {
   return (
     <div className="max-w-7xl mx-auto mt-[60px] mb-[70px] ">
       <div className="flex flex-wrap gap-6 justify-around">
-        {data.map((product) => (
+        {loading ? <Shimmer count={20}/>  : data.map((product) => (
           <ProductCard
             key={product.id}
             id={product.id}
