@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 
 const ProductCard = ({ image, title, rating, price,id }) => {
-  console.log(image);
   
   return (
     <div className="max-w-[240px] border-2 rounded-md cursor-pointer">

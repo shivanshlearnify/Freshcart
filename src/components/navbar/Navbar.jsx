@@ -6,12 +6,43 @@ import { CiShoppingCart } from "react-icons/ci";
 import { TbCategory } from "react-icons/tb";
 import { FaChevronDown } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { useContext, useState } from "react";
+import { useCallback, useContext, useEffect, useRef, useState } from "react";
 import DataContext from "../../utils/DataContext";
+import DataFetcher from "../../hooks/DataFetcher";
 
 const Navbar = () => {
   const { categoryData } = useContext(DataContext);
   const [isHovered, setIsHovered] = useState(false);
+  const [searchHover, setSearchHover] = useState(false);
+  const [searchQuery, setSearchQuery] = useState();
+  const productSearch = useRef();
+
+  const myDebounce = (cb, dtime) => {
+    let timer;
+    return (...args) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        cb(...args);
+      }, dtime);
+    };
+  };
+
+  const handleInputChange = () => {
+    setSearchQuery(productSearch.current.value);
+  };
+  const { data: searchProductData, loading: searchProductLoading } =
+    DataFetcher(`https://dummyjson.com/products/search?q=${searchQuery}`);
+
+  useEffect(() => {
+    if (searchQuery) {
+      setSearchHover(true);
+    } else {
+      setSearchHover(false);
+    }
+  }, [searchQuery, searchProductData]);
+
+  console.log(searchProductData);
+
   return (
     <>
       <div className="max-w-7xl mx-auto h-[100px]">
@@ -20,8 +51,10 @@ const Navbar = () => {
             <img src={logo} alt="Logo" />
           </Link>
           <div>
-            <div className="flex  justify-between mx-auto border-2 border-gray-500 rounded items-center  ">
+            <div className="flex  justify-between mx-auto border-2 border-gray-500 rounded items-center">
               <input
+                ref={productSearch}
+                onChange={myDebounce(handleInputChange, 500)}
                 className="border-r-2 border-gray-400 w-[950px] h-[30px] px-3 py-4 outline-none focus:outline-none"
                 type="text"
                 placeholder="Search"
@@ -41,6 +74,21 @@ const Navbar = () => {
             </div>
           </div>
         </div>
+        {searchHover && (
+          <div className="bg-black text-white relative">
+            <ul className="flex flex-col">
+              {searchProductData?.products?.slice(0,8).map((productname, index) => (
+                <Link
+                  className="text-transform: capitalize text-[#5c6c75] hover:bg-slate-200 rounded-lg py-1 px-2 font-medium"
+                  key={index}
+                  to={"/Product-Category/" + productname}
+                >
+                  {productname?.title}
+                </Link>
+              ))}
+            </ul>
+          </div>
+        )}
         <div className="flex gap-4 items-center">
           <div
             className="bg-[#0aad0a] text-[white] flex items-center px-[28px] py-[8px] rounded cursor-pointer"
