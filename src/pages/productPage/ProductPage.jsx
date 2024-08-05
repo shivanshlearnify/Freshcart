@@ -5,8 +5,14 @@ import { IoMdHeartEmpty } from "react-icons/io";
 import { FaUser } from "react-icons/fa";
 import ProductCard from "../../components/ProductCard";
 import ProductPageShimmer from "../../components/shimmer/ProductPageShimmer";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../utils/cartSlice";
+import { useRef } from "react";
+import toast from "react-hot-toast";
 
 const ProductPage = () => {
+  const inputRef = useRef();
+  const dispatch = useDispatch();
   const { id } = useParams();
   const { data: productData, loading: productLoading } = DataFetcher(
     `https://dummyjson.com/products/${id}`
@@ -16,7 +22,7 @@ const ProductPage = () => {
       `https://dummyjson.com/products/category/${productData?.category}`
     );
   if (!productData) {
-    return <ProductPageShimmer/> ;
+    return <ProductPageShimmer />;
   }
   const { category, title, images, description, reviews, price, stock, brand } =
     productData;
@@ -53,7 +59,9 @@ const ProductPage = () => {
                 <GoStarFill className="text-yellow-500" />
                 <GoStarFill className="text-yellow-500" />
               </div>
-              <span className="font-medium text-gray-500">({reviews.length} Customer review)</span>
+              <span className="font-medium text-gray-500">
+                ({reviews.length} Customer review)
+              </span>
             </div>
             <p className="font-medium text-gray-500">${price}</p>
           </div>
@@ -61,13 +69,22 @@ const ProductPage = () => {
           <hr className="my-1" />
           <div className="flex gap-4">
             <input
+              ref={inputRef}
               type="number"
               className="border-2 w-14 pl-1"
               defaultValue={1}
               min={1}
               max={stock}
             />
-            <button className="bg-[#0aad0a] text-[white] px-[28px] py-[8px] rounded cursor-pointer w-80%">
+            <button
+              className="bg-[#0aad0a] text-[white] px-[28px] py-[8px] rounded cursor-pointer w-80%"
+              onClick={() => {
+                dispatch(
+                  addToCart({ title, price, quantity: inputRef.current.value })
+                );
+                toast.success("Added To Cart SucessFully");
+              }}
+            >
               Add to cart
             </button>
           </div>
@@ -83,7 +100,9 @@ const ProductPage = () => {
               </Link>
             </p>
             <p className="font-medium text-gray-500">Brand: {brand}</p>
-            <p className="font-medium text-gray-500">Available Stock: {stock}</p>
+            <p className="font-medium text-gray-500">
+              Available Stock: {stock}
+            </p>
           </div>
         </div>
       </div>
@@ -130,18 +149,21 @@ const ProductPage = () => {
           Related Products
         </h1>
         <div className="flex justify-between my-6">
-          {CategoryProductData?.products?.filter((data)=>data.id != id).slice(0, 5).map((product) => {
-            return (
-              <ProductCard
-                key={product.id}
-                id={product.id}
-                image={product.images[0]}
-                title={product.title}
-                rating={product.rating}
-                price={product.price}
-              />
-            );
-          })}
+          {CategoryProductData?.products
+            ?.filter((data) => data.id != id)
+            .slice(0, 5)
+            .map((product) => {
+              return (
+                <ProductCard
+                  key={product.id}
+                  id={product.id}
+                  image={product.images[0]}
+                  title={product.title}
+                  rating={product.rating}
+                  price={product.price}
+                />
+              );
+            })}
         </div>
       </div>
     </div>

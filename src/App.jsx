@@ -7,6 +7,9 @@ import Navbar from "./components/navbar/Navbar";
 import Footer1 from "./components/footer/Footer1";
 import ScrollTop from "./components/ScrollTop";
 import ScrollTopArrow from "./components/ScrollTopArrow";
+import { Provider } from "react-redux";
+import store from "./utils/store";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   const { data: categoryData, loading: categoryLoading } = DataFetcher(
@@ -18,21 +21,24 @@ function App() {
 
   return (
     <div>
-      <DataContext.Provider
-        value={{
-          categoryData,
-          categoryLoading,
-          productData,
-          productLoading,
-        }}
-      >
-        <ScrollTop/>
-        <ScrollTopArrow/>
-        <PromoBar />
-        <Navbar />
-        <Outlet />
-        <Footer1 />
-      </DataContext.Provider>
+      <Provider store={store}>
+        <DataContext.Provider
+          value={{
+            categoryData,
+            categoryLoading,
+            productData,
+            productLoading,
+          }}
+        >
+          <ScrollTop />
+          <ScrollTopArrow />
+          <PromoBar />
+          <Toaster/>
+          <Navbar />
+          <Outlet />
+          <Footer1 />
+        </DataContext.Provider>
+      </Provider>
     </div>
   );
 }

@@ -11,3 +11,4 @@ Pages->
   - Morden and reusable Components
   - Shimmer ui in All Page
   - Throttling in All ProductPage while pagination
+  - Search functionality using Debounce

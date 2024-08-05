@@ -6,9 +6,11 @@ import { CiShoppingCart } from "react-icons/ci";
 import { TbCategory } from "react-icons/tb";
 import { FaChevronDown } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { useCallback, useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import DataContext from "../../utils/DataContext";
 import DataFetcher from "../../hooks/DataFetcher";
+import CartPage from "../../pages/cartPage/CartPage";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const { categoryData } = useContext(DataContext);
@@ -16,6 +18,7 @@ const Navbar = () => {
   const [searchHover, setSearchHover] = useState(false);
   const [searchQuery, setSearchQuery] = useState();
   const productSearch = useRef();
+  const cartArray = useSelector((state) => state.cart.items);
 
   const myDebounce = (cb, dtime) => {
     let timer;
@@ -41,8 +44,6 @@ const Navbar = () => {
     }
   }, [searchQuery, searchProductData]);
 
-  console.log(searchProductData);
-
   return (
     <>
       <div className="max-w-7xl mx-auto h-[100px]">
@@ -61,34 +62,41 @@ const Navbar = () => {
               />
               <MdOutlineSearch className="w-[35px] text-[20px] text-gray-500 cursor-pointer hover:text-green-500 transition delay-150 duration-300 ease-in-out" />
             </div>
+            {searchHover && (
+              <div className="bg-white absolute w-[950px] border">
+                <ul className="flex flex-col">
+                  {searchProductData?.products
+                    ?.slice(0, 8)
+                    .map((productname, index) => (
+                      <Link
+                        className="text-transform: capitalize text-[#5c6c75] hover:bg-slate-200 rounded-lg py-1 px-2 font-medium"
+                        key={index}
+                        to={"/Product/" + productname?.id}
+                        onClick={() => setSearchHover(false)}
+                      >
+                        {productname?.title}
+                      </Link>
+                    ))}
+                </ul>
+              </div>
+            )}
           </div>
-          <div className="flex w-[70px] justify-between text-[20px] text-gray-500 cursor-pointer">
+          <div className="flex w-[70px] justify-between text-[30px] text-gray-500 cursor-pointer">
             <div>
               <IoMdHeartEmpty />
             </div>
             <div>
               <FiUser />
             </div>
-            <div>
-              <CiShoppingCart />
+            <div className="relative">
+              <Link to={"/CartPage"}>
+                <span className="absolute left-[18px] top-[-7px] bg-green-500 text-[15px] text-white rounded-full w-5 h-5 flex justify-center items-center">{cartArray.length}</span>
+                <CiShoppingCart />
+              </Link>
             </div>
           </div>
         </div>
-        {searchHover && (
-          <div className="bg-black text-white relative">
-            <ul className="flex flex-col">
-              {searchProductData?.products?.slice(0,8).map((productname, index) => (
-                <Link
-                  className="text-transform: capitalize text-[#5c6c75] hover:bg-slate-200 rounded-lg py-1 px-2 font-medium"
-                  key={index}
-                  to={"/Product-Category/" + productname}
-                >
-                  {productname?.title}
-                </Link>
-              ))}
-            </ul>
-          </div>
-        )}
+
         <div className="flex gap-4 items-center">
           <div
             className="bg-[#0aad0a] text-[white] flex items-center px-[28px] py-[8px] rounded cursor-pointer"
@@ -135,6 +143,7 @@ const Navbar = () => {
                   className="text-transform: capitalize text-[#5c6c75] hover:bg-slate-200 rounded-lg py-1 px-2 font-medium"
                   key={index}
                   to={"/Product-Category/" + categoryname}
+                  onClick={() => setIsHovered(false)}
                 >
                   {categoryname}
                 </Link>

@@ -7,6 +7,7 @@ import About from "./pages/about/About.jsx";
 import ProductCategory from "./pages/productCategory/Productcategory.jsx";
 import ProductPage from "./pages/productPage/ProductPage.jsx";
 import AllProducts from "./pages/allProducts/AllProducts.jsx";
+import CartPage from "./pages/cartPage/CartPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
       { path: "/Product-Category/:Category", element: <ProductCategory /> },
       { path: "/Product/:id", element: <ProductPage /> },
       { path: "/AllProducts", element: <AllProducts /> },
+      { path: "/cartPage", element: <CartPage /> },
     ],
   },
 ]);
