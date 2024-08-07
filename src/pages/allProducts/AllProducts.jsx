@@ -35,20 +35,21 @@ const AllProducts = () => {
   return (
     <div className="max-w-7xl mx-auto mt-[60px] mb-[70px] ">
       <div className="flex flex-wrap gap-6 justify-around">
-        {loading ? <Shimmer count={20}/>  : data.map((product) => (
-          <ProductCard
-            key={product.id}
-            id={product.id}
-            image={product.images[0]}
-            title={product.title}
-            rating={product.rating}
-            price={product.price}
-          />
-        ))}
+        {loading ? (
+          <Shimmer count={20} />
+        ) : (
+          data.map((product) => (
+            <ProductCard
+              key={product.id}
+              id={product.id}
+              image={product.images[0]}
+              title={product.title}
+              rating={product.rating}
+              price={product.price}
+            />
+          ))
+        )}
       </div>
-      {loading && (
-        <div className="flex justify-center my-8">Loading..........</div>
-      )}
     </div>
   );
 };

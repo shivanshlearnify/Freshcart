@@ -4,9 +4,9 @@ import img2 from "../../assets/Categorybanners/banner2.jpeg";
 
 const CategoryBanner = () => {
   return (
-    <div className="max-w-7xl mx-auto flex mb-[70px] justify-between ">
+    <div className="max-w-7xl mx-auto flex mb-[70px] justify-between gap-2 md:px-2 sm:flex-col sm:px-2">
       <div
-        className="w-[620px] h-[200px] bg-cover rounded p-10"
+        className="w-[620px] h-[200px] bg-cover rounded p-10 sm:w-full"
         style={{ backgroundImage: `url(${img1})` }}
       >
         <h1 className="font-[700] mb-[1px] text-[24px]">
@@ -20,7 +20,7 @@ const CategoryBanner = () => {
         </button>
       </div>
       <div
-        className="w-[620px] h-[200px] bg-cover rounded p-10"
+        className="w-[620px] h-[200px] bg-cover rounded p-10 sm:w-full"
         style={{ backgroundImage: `url(${img2})` }}
       >
         <h1 className="font-[700] mb-[1px] text-[24px]">

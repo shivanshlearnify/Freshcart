@@ -7,6 +7,7 @@ Pages->
 
   Features
   - All date is Received through API
+  - Responsive caraosel for featured category
   - Used Data Context for storing data
   - Morden and reusable Components
   - Shimmer ui in All Page

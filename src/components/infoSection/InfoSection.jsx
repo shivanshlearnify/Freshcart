@@ -5,8 +5,8 @@ import { LiaExchangeAltSolid } from "react-icons/lia";
 
 const InfoSection = () => {
   return (
-    <div className="mb-[70px] max-w-7xl mx-auto flex justify-between">
-      <div className="w-[300px]">
+    <div className="mb-[70px] max-w-7xl mx-auto flex justify-between md:px-4 sm:grid sm:grid-cols-2 sm:gap-2 sm:px-2">
+      <div className="w-[300px] sm:w-[240px]">
         <CiClock2 className="text-green-500 text-5xl mb-4" />
         <h1 className="text-[20px] font-semibold mb-1">
           10 minute grocery now
@@ -16,7 +16,7 @@ const InfoSection = () => {
           FreshCart pickup stores near you.
         </p>
       </div>
-      <div className="w-[300px]">
+      <div className="w-[300px] sm:w-[240px]">
         <CiGift className="text-green-500 text-5xl mb-4" />
         <h1 className="text-[20px] font-semibold mb-1">Best Prices & Offers</h1>
         <p className="text-gray-500 text-[16px]">
@@ -24,7 +24,7 @@ const InfoSection = () => {
           top it off. Get best pricess & offers.
         </p>
       </div>
-      <div className="w-[300px]">
+      <div className="w-[300px] sm:w-[240px]">
         <BsBoxSeam className="text-green-500 text-[45px] mb-4" />
         <h1 className="text-[20px] font-semibold mb-1">Wide Assortment</h1>
         <p className="text-gray-500 text-[16px]">
@@ -32,7 +32,7 @@ const InfoSection = () => {
           bakery, veg and non-veg & other categories.
         </p>
       </div>
-      <div className="w-[300px]">
+      <div className="w-[300px] sm:w-[240px]">
         <LiaExchangeAltSolid className="text-green-500 text-[45px] mb-4" />
         <h1 className="text-[20px] font-semibold mb-1">Easy Returns</h1>
         <p className="text-gray-500 text-[16px]">

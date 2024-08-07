@@ -6,9 +6,9 @@ const PopularProducts = () => {
   const { productData } = useContext(DataContext);
   return (
     <div className="max-w-7xl mx-auto mt-[60px] mb-[70px] ">
-      <h1 className="mb-4 text-[28px] font-bold text-2xl">Popular Products</h1>
-      <div className="flex flex-wrap gap-6 justify-around">
-        {productData?.products?.slice(0,15).map((product) => (
+      <h1 className="mb-4 text-[28px] font-bold text-2xl md:px-2 sm:justify-center flex">Popular Products</h1>
+      <div className="flex flex-wrap gap-6 lg:justify-around md:px-8 sm:justify-center">
+        {productData?.products?.slice(0,10).map((product) => (
           <ProductCard
             key={product.id}
             id={product.id}
