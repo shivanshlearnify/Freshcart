@@ -11,8 +11,8 @@ const Footer1 = () => {
   return (
     <div className="bg-[#f0f3f2]">
       <div className="max-w-7xl mx-auto py-20">
-        <div className="flex justify-between ">
-          <div>
+        <div className="flex justify-between md:justify-around sm:grid sm:grid-cols-2 sm:px-4 sm:gap-6">
+          <div className="md:hidden sm:hidden">
             <h2 className="font-semibold">Categories</h2>
             <div>
               <ul className="grid grid-cols-2 gap-x-20	">
@@ -72,7 +72,7 @@ const Footer1 = () => {
           </div>
         </div>
         <div className="border-t-2 my-4"></div>
-        <div className="flex justify-between my-8 items-center ">
+        <div className="flex justify-between my-8 items-center md:justify-around md:flex-col md:gap-10 sm:flex-col">
           <div className="flex gap-3 font-semibold items-center">
             Payment Partners
             <div className="flex gap-4 text-4xl">
@@ -81,7 +81,7 @@ const Footer1 = () => {
               <FaCcPaypal />
             </div>
           </div>
-          <div className="flex gap-4 items-center">
+          <div className="flex gap-4 items-center sm:flex-col">
             <h2 className=" text-3xl text-gray-500 font-bold">Available On </h2>
             <div className="bg-black text-white flex justify-center items-center rounded-md gap-2 w-[200px] h-[60px] text-[30px] p-2 hover:bg-green-600 cursor-pointer">
               <FaApple className="text-white" />
@@ -94,7 +94,7 @@ const Footer1 = () => {
           </div>
         </div>
         <div className="border-t-2 my-4"></div>
-        <div className="flex justify-between">
+        <div className="flex justify-between md:justify-around sm:flex-col sm:items-center sm: px-5 sm:gap-8">
           <div>
             Copyright 2024 © FreshCart . All rights reserved. Powered by &nbsp;
             <a href="https://github.com/shivanshlearnify" target="_blank" className="text-green-500">

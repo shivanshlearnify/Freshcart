@@ -5,7 +5,7 @@ import { LiaExchangeAltSolid } from "react-icons/lia";
 
 const InfoSection = () => {
   return (
-    <div className="mb-[70px] max-w-7xl mx-auto flex justify-between md:px-4 sm:grid sm:grid-cols-2 sm:gap-2 sm:px-2">
+    <div className="mb-[70px] max-w-7xl mx-auto flex justify-between md:px-4 sm:flex-col sm:items-center sm:gap-10 sm:px-2">
       <div className="w-[300px] sm:w-[240px]">
         <CiClock2 className="text-green-500 text-5xl mb-4" />
         <h1 className="text-[20px] font-semibold mb-1">
@@ -24,7 +24,7 @@ const InfoSection = () => {
           top it off. Get best pricess & offers.
         </p>
       </div>
-      <div className="w-[300px] sm:w-[240px]">
+      <div className="w-[300px] sm:hidden">
         <BsBoxSeam className="text-green-500 text-[45px] mb-4" />
         <h1 className="text-[20px] font-semibold mb-1">Wide Assortment</h1>
         <p className="text-gray-500 text-[16px]">
@@ -32,7 +32,7 @@ const InfoSection = () => {
           bakery, veg and non-veg & other categories.
         </p>
       </div>
-      <div className="w-[300px] sm:w-[240px]">
+      <div className="w-[300px] sm:hidden">
         <LiaExchangeAltSolid className="text-green-500 text-[45px] mb-4" />
         <h1 className="text-[20px] font-semibold mb-1">Easy Returns</h1>
         <p className="text-gray-500 text-[16px]">

@@ -33,7 +33,7 @@ const AllProducts = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   return (
-    <div className="max-w-7xl mx-auto mt-[60px] mb-[70px] ">
+    <div className="max-w-7xl mx-auto mt-[60px] mb-[70px] sm:mt-36">
       <div className="flex flex-wrap gap-6 justify-around">
         {loading ? (
           <Shimmer count={20} />

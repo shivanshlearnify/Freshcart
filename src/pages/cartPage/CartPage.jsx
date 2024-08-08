@@ -15,9 +15,9 @@ const CartPage = () => {
   );
 
   return (
-    <div className="max-w-7xl mx-auto min-h-[60vh]">
+    <div className="max-w-7xl mx-auto min-h-[60vh] sm:mt-32 md:px-4 sm:px-4">
       <h1 className="font-semibold text-3xl text-gray-600">Cart</h1>
-      <div className="grid grid-cols-5 max-w-4xl mt-4">
+      <div className="grid grid-cols-5 max-w-4xl mt-4 sm:grid-cols-3 sm:gap-6 ">
         <span className="font-medium text-xl text-green-500">Item Name</span>
         <span className="font-medium text-xl text-green-500">Price</span>
         <span className="font-medium text-xl text-green-500">Quantity</span>
@@ -30,7 +30,7 @@ const CartPage = () => {
         const { title, price, quantity } = item;
         return (
           <div key={index} className="max-w-4xl my-8">
-            <div className="grid grid-cols-5 my-2">
+            <div className="grid grid-cols-5 my-2 sm:grid-cols-3 sm:gap-6 ">
               <span className="text-gray-600 text-lg font-medium">{title}</span>
               <span className="font-medium text-gray-500">{price}</span>
               <span className="font-medium text-gray-500">{quantity}</span>

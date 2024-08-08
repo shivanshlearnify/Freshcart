@@ -13,13 +13,13 @@ const ProductCategory = () => {
   const { data: categoryProductData, loading: categoryProductLoading } =
     DataFetcher(`https://dummyjson.com/products/category/${Category}`);
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className="max-w-7xl mx-auto md:px-4 sm:mt-36">
       <div className="text-transform: capitalize mb-4">
         <span className="text-green-500 font-medium"> Home</span>{" "}
         <span className="text-gray-500"> / {Category}</span>
       </div>
       <div className="mb-14 flex gap-5">
-        <div className="w-1/5">
+        <div className="w-1/5 sm:hidden">
           <h2 className="text-xl font-medium mb-2">Categories</h2>
           {categoryProductLoading ? (
             <>
@@ -41,7 +41,7 @@ const ProductCategory = () => {
             })
           )}
         </div>
-        <div className="w-4/5">
+        <div className="w-4/5 sm:w-full sm:px-4">
           <div className="text-transform: capitalize bg-[#f0f3f2] w-full h-40 rounded-md p-12 text-gray-500 text-5xl font-semibold mb-4">
             {Category}
           </div>

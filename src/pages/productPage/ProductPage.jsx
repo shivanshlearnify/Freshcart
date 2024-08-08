@@ -28,7 +28,7 @@ const ProductPage = () => {
     productData;
 
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className="max-w-7xl mx-auto md:px-4 sm:mt-36 sm:px-4">
       <div className="font-medium">
         <span className="text-green-500">Home </span>{" "}
         <span className="text-gray-500">/ </span>
@@ -43,10 +43,10 @@ const ProductPage = () => {
           {title}
         </span>
       </div>
-      <div className="flex gap-16">
-        <img className="w-1/2 h-[555px]" src={images[0]} alt={title} />
+      <div className="flex gap-16 md:flex-col md:items-center sm:flex-col sm:items-center">
+        <img className="w-1/2 h-[555px] md:w-3/4 sm:w-full" src={images[0]} alt={title} />
         <div className="flex flex-col gap-6 justify-center">
-          <div>
+          <div className="md:order-1">
             <h2 className="text-4xl font-medium text-gray-500 mb-2 flex gap-4 items-center">
               {title} <IoMdHeartEmpty className="cursor-pointer text-2xl" />
             </h2>
@@ -66,8 +66,8 @@ const ProductPage = () => {
             <p className="font-medium text-gray-500">${price}</p>
           </div>
 
-          <hr className="my-1" />
-          <div className="flex gap-4">
+          <hr className="my-1 md:order-2" />
+          <div className="flex gap-4 md:justify-center md:order-5">
             <input
               ref={inputRef}
               type="number"
@@ -88,8 +88,8 @@ const ProductPage = () => {
               Add to cart
             </button>
           </div>
-          <hr className="my-1" />
-          <div>
+          <hr className="my-1 md:order-4" />
+          <div className="md:order-3">
             <p className="text-transform : capitalize font-medium text-gray-500">
               Category:{" "}
               <Link
@@ -148,7 +148,7 @@ const ProductPage = () => {
         <h1 className="text-2xl font-medium text-gray-500 mt-8">
           Related Products
         </h1>
-        <div className="flex justify-between my-6">
+        <div className="flex justify-between my-6 md:grid md:grid-cols-3 md:gap-4 sm:grid sm:grid-cols-2 sm:gap-2">
           {CategoryProductData?.products
             ?.filter((data) => data.id != id)
             .slice(0, 5)
