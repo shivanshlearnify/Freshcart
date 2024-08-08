@@ -110,7 +110,7 @@ const Navbar = () => {
           </div>
           {isHovered && (
             <div
-              className="absolute top-10 bg-white w-5/12 border rounded-lg p-4 shadow-md sm:top-10 sm:w-10/12"
+              className="absolute top-10 bg-white w-5/12 border rounded-lg p-4 shadow-md sm:top-10 sm:w-10/12 z-50"
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             >
