@@ -17,4 +17,11 @@
       background-position: 200% 0;
     }
   }
+
+  * {
+    scrollbar-color: #0aad0a #fff;
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
+    
+  }
   

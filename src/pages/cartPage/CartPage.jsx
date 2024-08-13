@@ -1,18 +1,25 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteFromCart } from "../../utils/cartSlice";
+import { deleteFromCart, emptyCart } from "../../utils/cartSlice";
 import toast from "react-hot-toast";
 
 const CartPage = () => {
   const cartArray = useSelector((state) => state.cart.items);
   const dispatch = useDispatch();
 
-  console.log(cartArray);
-
   const cartTotal = cartArray.reduce(
     (total, item) => total + Number(item.quantity) * item.price,
     0
   );
+
+  const handleCart = () => {
+    if (cartArray.length > 0) {
+      dispatch(emptyCart());
+      toast.success("Order placed Sucessfully");
+    }
+  };
+
+  
 
   return (
     <div className="max-w-7xl mx-auto min-h-[60vh] sm:mt-32 md:px-4 sm:px-4">
@@ -55,9 +62,12 @@ const CartPage = () => {
         <h2 className="font-semibold text-3xl text-gray-600">Cart Total</h2>
         <div className="flex justify-between">
           <span className="text-xl text-green-500">Total</span>
-          <span className="text-xl text-gray-500">{cartTotal}</span>
+          <span className="text-xl text-gray-500">{Math.floor(cartTotal)}</span>
         </div>
-        <button className="bg-green-500 text-white w-full px-1 py-2 rounded-md cursor-pointer">
+        <button
+          className="bg-green-500 text-white w-full px-1 py-2 rounded-md cursor-pointer"
+          onClick={handleCart}
+        >
           Proceed To Checkout
         </button>
       </div>
