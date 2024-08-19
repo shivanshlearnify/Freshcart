@@ -4,10 +4,12 @@ import { FaGithub, FaTwitter } from "react-icons/fa6";
 import { IoLogoLinkedin } from "react-icons/io";
 import { FaCcAmazonPay, FaApplePay, FaCcPaypal, FaApple } from "react-icons/fa";
 import { BiLogoPlayStore } from "react-icons/bi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Footer1 = () => {
   const { categoryData } = useContext(DataContext);
+  const navigate = useNavigate();
+
   return (
     <div className="bg-[#f0f3f2]">
       <div className="max-w-7xl mx-auto py-20">
@@ -31,45 +33,16 @@ const Footer1 = () => {
           <div>
             <h2 className="font-semibold">Get to know us</h2>
             <ul>
-              <li className="text-[#5c6c75]">Company</li>
+              <li className="text-[#5c6c75] cursor-pointer" onClick={()=>navigate("/about")}>Company</li>
               <Link to={"/about"} className="text-[#5c6c75]">
                 About
               </Link>
-              <li className="text-[#5c6c75]">Blog</li>
-              <li className="text-[#5c6c75]">Help Center</li>
-              <li className="text-[#5c6c75]">Our Value</li>
+              <li className="text-[#5c6c75] cursor-pointer" onClick={()=>navigate("/about")}>Blog</li>
+              <li className="text-[#5c6c75] cursor-pointer" onClick={()=>navigate("/ContactUs")}>Help Center</li>
+              <li className="text-[#5c6c75] cursor-pointer" onClick={()=>navigate("/about")}>Our Value</li>
             </ul>
           </div>
-          <div>
-            <h2 className="font-semibold">For Consumers</h2>
-            <ul>
-              <li className="text-[#5c6c75]">Payments</li>
-              <li className="text-[#5c6c75]">Shipping</li>
-              <li className="text-[#5c6c75]">Product Returns</li>
-              <li className="text-[#5c6c75]">FAQ</li>
-              <li className="text-[#5c6c75]">Shop Checkout</li>
-            </ul>
-          </div>
-          <div>
-            <h2 className="font-semibold">Become a Shopper</h2>
-            <ul>
-              <li className="text-[#5c6c75]">Shoppers Opportunities</li>
-              <li className="text-[#5c6c75]">Become a Shopper</li>
-              <li className="text-[#5c6c75]">Earnings</li>
-              <li className="text-[#5c6c75]">Ideas & Guides</li>
-              <li className="text-[#5c6c75]">New Reatilers</li>
-            </ul>
-          </div>
-          <div>
-            <h2 className="font-semibold">Freshcart programs</h2>
-            <ul>
-              <li className="text-[#5c6c75]">Freshcart programs</li>
-              <li className="text-[#5c6c75]">Gift Cards</li>
-              <li className="text-[#5c6c75]">Promos & Coupons</li>
-              <li className="text-[#5c6c75]">Freshcart Ads</li>
-              <li className="text-[#5c6c75]">Careers</li>
-            </ul>
-          </div>
+          
         </div>
         <div className="border-t-2 my-4"></div>
         <div className="flex justify-between my-8 items-center md:justify-around md:flex-col md:gap-10 sm:flex-col">
@@ -97,7 +70,11 @@ const Footer1 = () => {
         <div className="flex justify-between md:justify-around sm:flex-col sm:items-center sm: px-5 sm:gap-8">
           <div>
             Copyright 2024 © FreshCart . All rights reserved. Powered by &nbsp;
-            <a href="https://github.com/shivanshlearnify" target="_blank" className="text-green-500">
+            <a
+              href="https://github.com/shivanshlearnify"
+              target="_blank"
+              className="text-green-500"
+            >
               ShivanshLeanify.
             </a>
           </div>

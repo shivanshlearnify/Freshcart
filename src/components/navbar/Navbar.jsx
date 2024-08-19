@@ -85,9 +85,6 @@ const Navbar = () => {
             <div>
               <IoMdHeartEmpty />
             </div>
-            <div>
-              <FiUser />
-            </div>
             <div className="relative">
               <Link to={"/CartPage"}>
                 <span className="absolute left-[18px] top-[-7px] bg-green-500 text-[15px] text-white rounded-full w-5 h-5 flex justify-center items-center">
@@ -142,15 +139,12 @@ const Navbar = () => {
             >
               All Products
             </Link>
-            <li className="flex items-center gap-2 font-medium text-gray-700 ">
+            <Link className="flex items-center gap-2 font-medium text-gray-700 " to={"/About"}>
               About us <FaChevronDown />
-            </li>
-            <li className="flex items-center gap-2 font-medium text-gray-700 ">
+            </Link>
+            <Link className="flex items-center gap-2 font-medium text-gray-700 " to={"./ContactUs"}>
               Contact us <FaChevronDown />
-            </li>
-            <li className="flex items-center gap-2 font-medium text-gray-700 ">
-              Account <FaChevronDown />
-            </li>
+            </Link>
           </ul>
         </div>
       </div>
