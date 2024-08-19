@@ -8,11 +8,13 @@ import ProductCategory from "./pages/productCategory/Productcategory.jsx";
 import ProductPage from "./pages/productPage/ProductPage.jsx";
 import AllProducts from "./pages/allProducts/AllProducts.jsx";
 import CartPage from "./pages/cartPage/CartPage.jsx";
+import ErrorPage from "./components/ErrorPage.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage/>,
     children: [
       { path: "/", element: <Hompage /> },
       { path: "/about", element: <About /> },
